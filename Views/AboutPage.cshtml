@@ -1,0 +1,22 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.AboutPage>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+	Layout = "Master.cshtml";
+}
+
+<!-- Jumbotron, w title -->
+    <div class="jumbotron text-center jumbotron-fluid">
+            <div class="container">
+                <h1 class="display-1">@Model.Value("pageTitle")</h1>
+            </div>
+        </div>
+
+<!-- Main -->
+<section id="main" class="wrapper">
+    <div class="container">
+
+        @Model.Value("bodyText")
+    </div>
+</section>    

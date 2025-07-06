@@ -1,0 +1,37 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.Register>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+	Layout = "Master.cshtml";
+}
+
+
+<!-- Jumbotron, w title -->
+  <div class="jumbotron text-center jumbotron-fluid">
+     <div class="container">
+          <h1 class="display-1">@Model.Value("pageTitle")</h1>
+    </div>
+</div>
+
+
+<section class="wrapper">
+    <div class="container">
+        <div class="col-md-9">
+            <article>
+                @await Html.GetBlockGridHtmlAsync(Model, "bodyText")
+            </article>
+            <article>
+                
+                <br />
+                @await Html.PartialAsync("partials/loginStatus")
+                <br />
+                
+                @await Html.PartialAsync("partials/register")
+                
+                <br />
+                
+            </article>
+        </div>
+    </div>
+
+</section>

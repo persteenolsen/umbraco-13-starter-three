@@ -1,0 +1,55 @@
+{
+  "$schema": "appsettings-schema.json",
+  "Serilog": {
+    "MinimumLevel": {
+      "Default": "Information"
+    },
+    "WriteTo": [
+      {
+        "Name": "Async",
+        "Args": {
+          "configure": [
+            {
+              "Name": "Console"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "Umbraco": {
+    "CMS": {
+      "Global": {
+        "Smtp": {
+          "From": "your-email-from@your-domain.com",
+          "Host": "your-smtp-host-development",
+          "Port": 587,
+          "Username": "your-email-username",
+          "Password": "your-email-password"
+        }
+      },
+      "ModelsBuilder": {
+        "ModelsMode": "SourceCodeManual",
+        "ModelsNamespace": "Umbraco.Cms.Web.Common.PublishedModels",
+        "FlagOutOfDateModels": false,
+        "ModelsDirectory": "~/umbraco/models",
+        "AcceptUnsafeModelsDirectory": false,
+        "DebugLevel": 0,
+        "IncludeVersionNumberInGeneratedModels": true
+      },
+      "Content": {
+        "MacroErrors": "Throw"
+      },
+      "Hosting": {
+        "Debug": true
+      },
+      "WebRouting": {
+        "UmbracoApplicationUrl": "https://localhost:44319"
+      },
+      "RuntimeMinification": {
+        "UseInMemoryCache": true,
+        "CacheBuster": "Timestamp"
+      }
+    }
+  }
+}

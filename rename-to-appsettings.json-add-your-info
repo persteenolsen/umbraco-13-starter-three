@@ -1,0 +1,54 @@
+{
+  "$schema": "appsettings-schema.json",
+  "Serilog": {
+    "MinimumLevel": {
+      "Default": "Information",
+      "Override": {
+        "Microsoft": "Warning",
+        "Microsoft.Hosting.Lifetime": "Information",
+        "System": "Warning"
+      }
+    }
+  },
+  "Umbraco": {
+    "CMS": {
+      "Global": {
+        "Id": "f95aa75f-3921-4b5d-96b0-d8ddd1ba3668",
+        "SanitizeTinyMce": true,
+        "UseHttps": true,
+        "Smtp": {
+          "From": "your-email-from@your-domain.com",
+          "Host": "your-smtp-host-production",
+          "Port": 587,
+          "Username": "your-email-username",
+          "Password": "your-email-password"
+        }
+      },
+      "Hosting": {
+        "Debug": false
+      },
+      "WebRouting": {
+        "UmbracoApplicationUrl": "https://umb.members.persteenolsen.com"
+      },
+      "Content": {
+        "Notifications": {
+          "Email": "your-email-from@your-domain.com"
+        },
+        "AllowEditInvariantFromNonDefault": true,
+        "ContentVersionCleanupPolicy": {
+          "EnableCleanup": true
+        }
+      },
+      "Unattended": {
+        "UpgradeUnattended": true
+      },
+      "Security": {
+        "AllowConcurrentLogins": false
+      }
+    }
+  },
+  "ConnectionStrings": {
+    "umbracoDbDSN": "Data Source=|DataDirectory|/Umbraco.sqlite.db;Cache=Private;Foreign Keys=True;Pooling=True",
+    "umbracoDbDSN_ProviderName": "Microsoft.Data.Sqlite"
+  }
+}
