@@ -8,8 +8,11 @@
 @{
     var isLoggedIn = Context.User.GetMemberIdentity()?.IsAuthenticated ?? false;
     var logoutModel = new PostRedirectModel();
+
     // You can modify this to redirect to a different URL instead of the current one
-    logoutModel.RedirectUrl = null;
+    // logoutModel.RedirectUrl = null;
+    // 08-07-2025 - Redirect to Home Page
+    logoutModel.RedirectUrl = "/";
 }
 
 @if (isLoggedIn)
