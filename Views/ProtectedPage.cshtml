@@ -2,7 +2,7 @@
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.ProtectedPage>
 @using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
 @{
-	Layout = "MasterProtected.cshtml";
+	Layout = "Master.cshtml";
 }
 
 
@@ -13,24 +13,6 @@
           <h1 class="display-1">@Model.Value("pageTitle")</h1>
     </div>
 </div>
-
-<!--Login Status-->
-<section class="wrapper">
-    <div class="container">
-        <div class="col-md-9">
-            <article>
-                @await Html.GetBlockGridHtmlAsync(Model, "bodyText")
-            </article>
-            <article>
-                
-                <br />
-                @await Html.PartialAsync("partials/loginStatus")
-                <br />
-                
-            </article>
-        </div>
-    </div>
-</section>
 
 
 <!-- Main -->

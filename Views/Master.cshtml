@@ -43,6 +43,19 @@
     .Children()
     .Where(x => x.IsVisible());
 }
+
+@using Umbraco.Cms.Web.Common.Models
+
+@{
+    var isLoggedIn = Context.User.GetMemberIdentity()?.IsAuthenticated ?? false;
+    var logoutModel = new PostRedirectModel();
+
+    // You can modify this to redirect to a different URL instead of the current one
+    // logoutModel.RedirectUrl = null;
+    // 08-07-2025 - Redirect to Home Page
+    logoutModel.RedirectUrl = "/";
+}
+
  <!-- Navigation -->
     <div class="container">
             
@@ -60,22 +73,50 @@
         
         <!-- Links -->
         <ul class="navbar-nav">
+
+            @* Display the Menu Items if the User is NOT Logged in *@
             @foreach (var item in selection)
             {
-                <li class="nav-item">
-                    <a href="@item.Url()" class="nav-link" >@item.Name()</a>
-                </li>
+                 @if ( isLoggedIn == false ){
+                                       
+                      <li class="nav-item">
+                        <a href="@item.Url()" class="nav-link" >@item.Name()</a>
+                      </li>
+                }
             }
-        </ul>
-        
-        </div>
-        
+          
+          @* If the User is Logged in *@
+          @if ( isLoggedIn ){
+            
+             <li class="nav-item">
+                  <a href="/protected-page" class="nav-link" >Protected Page</a>
+             </li>
+
+             <li class="nav-item">
+                   <a href="/logout" class="nav-link" >Logout</a>
+             </li>
+
+            }
+
+             
+         </ul>
+
+         </div>
+            
         </nav>
+
+        @* If the User is Logged in *@
+        @if ( isLoggedIn ){
+
+            <div class="login-status">
+                <p class="nav-link">Welcome back <strong>@Context.User?.GetMemberIdentity()?.Name</strong>!</p>
+            </div>
+         }
+
     </div>
     
 
-
-		@RenderBody()
+	  @RenderBody()
 		
 		
 		<!-- Footer -->
