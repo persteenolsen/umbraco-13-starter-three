@@ -45,7 +45,10 @@
     {
         <h2>Update your account.</h2>
         <hr />
+
+        // 12-07-2025: The validation summery needs to be All instead of ModelOnly !!
         <div asp-validation-summary="All" class="text-danger"></div>
+
         <div class="mb-3">
             <label asp-for="@profileModel.Name" class="form-label"></label>
             <input asp-for="@profileModel.Name" class="form-control" aria-required="true" />
