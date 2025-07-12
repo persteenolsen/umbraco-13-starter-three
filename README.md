@@ -2,7 +2,7 @@
 
 Last Updated:
 
-11-07-2025
+12-07-2025
 
 A Website by Umbraco CMS 13 with Member Registration and Login serving as a Starter
 
