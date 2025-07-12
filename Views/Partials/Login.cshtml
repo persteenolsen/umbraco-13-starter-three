@@ -1,6 +1,5 @@
 ﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
 
-
 @using Umbraco.Cms.Web.Common.Models
 @using Umbraco.Cms.Web.Common.Security
 @using Umbraco.Cms.Web.Website.Controllers
@@ -10,13 +9,14 @@
 @inject ITwoFactorLoginService twoFactorLoginService
 @{
     var loginModel = new LoginModel();
-    
+
     // You can modify this to redirect to a different URL instead of the current one
     // loginModel.RedirectUrl = null;
     // 06-07-2025 - Redirect to Login Status
     loginModel.RedirectUrl = "/protected-page";
-    
+
 }
+    
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
@@ -56,7 +56,11 @@ else
 
             <h4>Log in with a local account</h4>
             <hr />
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            
+            // 12-07-2025: The validation summery needs to be All instead of ModelOnly !!
+            // If using ModelOnly no error messages when entering wrong password or username 
+            <div asp-validation-summary="All" class="text-danger"></div>
+
             <div class="mb-3">
                 <label asp-for="@loginModel.Username" class="form-label"></label>
                 <input asp-for="@loginModel.Username" class="form-control" />

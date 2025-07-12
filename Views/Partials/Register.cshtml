@@ -49,7 +49,10 @@ else
     {
         <h4>Create a new account</h4>
         <hr />
+
+         // 12-07-2025: The validation summery needs to be All instead of ModelOnly !!
         <div asp-validation-summary="All" class="text-danger"></div>
+
         <div class="mb-3">
             <label asp-for="@registerModel.Name" class="form-label"></label>
             <input asp-for="@registerModel.Name" class="form-control" aria-required="true" />
