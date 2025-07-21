@@ -1,4 +1,16 @@
+
+
+
+using MembersUmbraco.Services;
+using MembersUmbraco.Helpers;
+
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
+
+// 10-06-2025: Register the Email send functionality by Services/EmailSender.cs and
+// using the AppSettings.cs from Helpers and the section AppSettings from appsettings.json
+builder.Services.Configure<AppSettings>(builder.Configuration.GetSection("AppSettings"));
+builder.Services.AddScoped<IEmailSender, EmailSender>();
+
 
 
 builder.CreateUmbracoBuilder()
