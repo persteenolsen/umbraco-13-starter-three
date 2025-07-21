@@ -4,7 +4,7 @@ Last Updated:
 
 21-07-2025
 
-A Website by Umbraco CMS 13 with Member Registration and Login serving as a Starter
+A Website by Umbraco CMS 13 with Member Registration, Login and Forgot Password serving as a Starter
 
 # Create a global json
 
@@ -30,6 +30,8 @@ dotnet new globaljson --sdk-version 8.0.203 --force
 
 - .NET 8
 - Umbraco CMS 13
+- SurfaceControllers
+- RenderController
 - SQLite DB for both Dev + Prod
 - A traditional Webhotel for hosting
 - VS Code
