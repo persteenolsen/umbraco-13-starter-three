@@ -36,7 +36,6 @@ public class ResetPasswordFormController : SurfaceController
     }
 
     [HttpPost]
-   // public IActionResult Submit(ResetPasswordModel model)
     public async Task<IActionResult> Submit(ResetPasswordModel model)
     {
        
@@ -44,7 +43,7 @@ public class ResetPasswordFormController : SurfaceController
 
         if (!ModelState.IsValid)
         {
-            TempData["ResetStatus"] += "Password is not valid + ";
+            TempData["ResetStatus"] += "The Model State / Input values are not valid + ";
 
             // return CurrentUmbracoPage();
             return Redirect("/forgotpassword");
@@ -56,23 +55,15 @@ public class ResetPasswordFormController : SurfaceController
         TempData["ConfirmPassword"] = model.ConfirmPassword;
 
         var validPassword = await _memberManager.ValidatePasswordAsync(model.NewPassword);
+        
         if (!validPassword.Succeeded)
         {
             //ModelState.AddModelError("NoPass", "Password is not valid");
-            TempData["ResetStatus"] += "Password is not valid + ";
-         }
-        if (string.IsNullOrWhiteSpace(model.NewPassword))
-          {
-            // ModelState.AddModelError("NoPass", "You must enter a password");
-            TempData["ResetStatus"] += "You must enter a password + "; 
-           }
-        if (model.NewPassword != model.ConfirmPassword)
-        {
-            // ModelState.AddModelError("NoMatch", "passwords do not match");
-            TempData["ResetStatus"] += "Passwords do not match + ";
+            TempData["ResetStatus"] += "Password is not valid in the System + ";
         }
-
-         if (TempData["ResetStatus"] != null )
+       
+        // Redirect to forgotpassword if the Password is not valid in the Umbraco System
+        if (TempData["ResetStatus"] != null )
         {
             TempData["ResetStatus"] += "Password Reset - Input Error - try again !";
 
@@ -81,13 +72,14 @@ public class ResetPasswordFormController : SurfaceController
 
         var identityUser = _memberManager.FindByIdAsync(model.MemberId).Result;
         var result =  _memberManager.ResetPasswordAsync(identityUser, model.Token, model.NewPassword).Result;
-
+        
+        // Redirect to forgotpassword if the Password was not Reset by the Umbraco System
         if (!result.Succeeded)
         {
             TempData["ResetStatus"] += "Password Reset - Member Error - try again !";
 
             return Redirect("/forgotpassword");
-         }
+        }
 
 
         // If the Password was changed, redirect to login page
