@@ -39,7 +39,6 @@ public class ResetPasswordFormController : SurfaceController
    // public IActionResult Submit(ResetPasswordModel model)
     public async Task<IActionResult> Submit(ResetPasswordModel model)
     {
-
        
         TempData["ResetStatus"] = null;
 

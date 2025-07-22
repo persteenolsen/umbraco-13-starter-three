@@ -63,7 +63,8 @@ namespace MembersUmbraco.Controllers
             // Check if the token from the Email match the token saved in the Cookie
             if (tokenS.Equals(tokenFromCookieS))
             {
-                TempData["ResetPasswordTokenMatch"] = "You can reset your Password now ...";
+                // Just for TEST
+                // TempData["ResetPasswordTokenMatch"] = "You can reset your Password now ...";
 
                 // Deleting a cookie - after testing the system
                 HttpContext.Response.Cookies.Delete("ResetToken");
