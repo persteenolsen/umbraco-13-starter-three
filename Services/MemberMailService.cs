@@ -48,7 +48,7 @@ namespace MembersUmbraco.Services;
                 string baseURL = "https://localhost:44319";
 
                 // Note: Production url
-                //string baseURL = "https://umb.members.persteenolsen.com";
+                // string baseURL = "https://umb.members.persteenolsen.com";
 
                 var resetUrl = baseURL + "/resetpassword?id=" + member.Id + "&token=" + token;
 

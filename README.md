@@ -36,6 +36,8 @@ dotnet new globaljson --sdk-version 8.0.203 --force
 - Umbraco CMS 13
 - SurfaceControllers
 - RenderController
+- Input Validation by Model Anotation
+- Input Validation by Frontend JS
 - SQLite DB for both Dev + Prod
 - A traditional Webhotel for hosting
 - VS Code
