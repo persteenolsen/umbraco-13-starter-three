@@ -2,7 +2,7 @@
 
 Last Updated:
 
-22-07-2025
+24-07-2025
 
 A Website by Umbraco CMS 13 with Member Registration, Login and Forgot Password serving as a Starter
 
@@ -26,6 +26,7 @@ dotnet new globaljson --sdk-version 8.0.203 --force
 
 - Simple Website with an Umbraco Backend
 - Member Registration
+- Member Confirm Registration
 - Member Login
 - Forgot Password
 - Edit Members own Profile when logged in

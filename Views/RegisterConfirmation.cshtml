@@ -1,0 +1,53 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.RegisterConfirmation>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+		Layout = "MasterEmp.cshtml";
+}
+
+
+@using MembersUmbraco.Controllers
+@using MembersUmbraco.Models
+
+@using Umbraco.Cms.Web.Common.UmbracoContext
+
+
+<p><b>Thank You - Submitted values:</b>
+
+@TempData["Email"]
+
+  <!-- Jumbotron, w title -->
+ <div class="jumbotron text-center jumbotron-fluid">
+            <div class="container">
+                             
+              @{
+                @* The pageTitle will be displayed by the Current Page / Content Node *@
+                var currentPage = Umbraco.AssignedContentItem;
+                
+                if( currentPage != null) {
+                    <h1 class="display-1">@currentPage.Value("pageTitle")</h1>
+                  }
+               else { 
+                     <h1 class="display-1">Register Confirmation</h1> 
+                     }
+              
+              } 
+            
+            </div>
+  </div>
+  
+
+<div class="container shadow p-5">
+
+    Hello from Register Confirmation - Thanks<br /><br />
+    
+   @*<p>@TempData["ResetPasswordId"]</p>*@
+   @*<p>@TempData["ResetPasswordToken"]</p>*@
+   @*<p>@TempData["ResetPasswordTokenMatch"]</p>*@        
+
+    @*<h1 class="display-1">@currentPage.Value("umbracoNaviHide")</h1>*@
+     @if( UmbracoContext.InPreviewMode ){
+         <p><i>Preview Mode</i></p> 
+     }
+
+  

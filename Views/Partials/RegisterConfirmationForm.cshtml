@@ -1,0 +1,60 @@
+@using MembersUmbraco.Controllers
+@model MembersUmbraco.Models.RegisterConfirmationModel
+
+@*<p><b>Submitted values:</b><br /><br />*@
+
+ 
+ @* Values from the Controller loading this Form before Submit*@
+ @*<p>@TempData["MemberId"]</p>*@
+ @*<p>@TempData["Token"]</p>*@
+ @*<p>@TempData["EncodedToken"]</p>*@
+  
+  @* Values after Submitting the Form *@
+  @*<p>@TempData["MemberId"]</p>*@
+  @*<p>@TempData["Token"]</p>*@
+
+<div class="container shadow p-5">
+    
+   @if( TempData["RegisterConfirmationSent"] != null ){
+    <br /><h3>Sending an Email with a 1 hour valid Register Confirmation link to: </h3>
+   }
+
+<br />
+
+@* The value set in RegisterConfirmationFormController.cs*@
+<p>@TempData["Email"]</p>
+
+@* The value set in RegisterConfirmationFormController.cs*@
+<p>@TempData["RegisterConfirmationStatus"]</p>
+
+@* The value set in ResetPasswordController.cs*@
+@* Error Message if the ResetToken did Expirer *@
+<p>@TempData["RegisterConfirmationTokenMatch"]</p> 
+
+    Hello from RegisterConfirmationForm.cs<br /><br />
+    
+            
+@using (Html.BeginUmbracoForm<RegisterConfirmationFormController>(nameof(RegisterConfirmationFormController.Submit)))
+    {
+ 
+        <!--<div asp-validation-summary="All"></div>-->
+  <div>
+        <label asp-for="Email"></label><br />
+        <input class="form-control" asp-for="Email" />
+        <span asp-validation-for="Email" class="alert-danger"></span>
+   </div>
+    
+   <br />
+    <input type="submit" name="Submit" value="Submit" />
+
+    }
+
+</div>
+
+@*//Script for front end validations acording the RegisterConfirmationModel.cs*@
+
+@section Scripts{
+    @{
+    <partial name="_ValidationScriptsPartial" />
+    }
+}

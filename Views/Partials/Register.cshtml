@@ -12,16 +12,21 @@
     // Build a registration model with parameters
     var registerModel = memberModelBuilderFactory
         .CreateRegisterModel()
+
         // Set the member type alias to use for the new member
         .WithMemberTypeAlias(Constants.Conventions.MemberTypes.DefaultAlias)
+
         // If null or not set, this will redirect to the current page
         .WithRedirectUrl(null)
+
         // Set to true if you want the member editable properties shown.
         // It will only displays properties marked as "Member can edit" on the "Info" tab of the Member Type.
-        .WithCustomProperties(false)
+        .WithCustomProperties(true)
+
         // By default the member will be logged in automatically after registration.
         // Set this to false if the member should not be logged in automatically.
-        .WithAutomaticLogIn(true)
+        .WithAutomaticLogIn(false)
+
         .Build();
 
     var success = TempData["FormSuccess"] != null;
@@ -34,7 +39,7 @@
 @if (success)
 {
     @* This message will show if registerModel.RedirectUrl is not defined (default) *@
-    <p class="text-success">Registration succeeded.</p>
+    <p class="text-success">Registration succeeded - You Must Confirm Registration before Login! </p>
 }
 else
 {
