@@ -4,7 +4,7 @@ Last Updated
 
 24-07-2025
 
-A Website by Umbraco CMS 13 with Member Registration, Login and Forgot Password serving as a Starter
+A Website by Umbraco CMS 13 with Member Registration, Confirmation, Login and Forgot Password serving as a Starter
 
 # Create a global json
 
