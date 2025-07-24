@@ -1,6 +1,6 @@
 # umbraco-13-starter-three
 
-Last Updated:
+Last Updated
 
 24-07-2025
 
