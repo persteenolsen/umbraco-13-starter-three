@@ -4,7 +4,7 @@ Last Updated
 
 25-07-2025
 
-A Website by Umbraco CMS 13 with Member Registration, Confirmation, Login and Forgot Password serving as a Starter
+A Website by Umbraco CMS 13 with Member Registration, Confirmation, Login, Forgot Password and Manage Profile serving as a Starter
 
 # Create a global json
 
@@ -40,6 +40,7 @@ dotnet new globaljson --sdk-version 8.0.203 --force
 - RenderController
 - Input Validation by Model Anotation
 - Input Validation by Frontend JS
+- Cookies for State Management
 - SQLite DB for both Dev + Prod
 - A traditional Webhotel for hosting
 - VS Code
