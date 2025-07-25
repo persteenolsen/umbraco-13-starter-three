@@ -31,8 +31,8 @@
  <!-- The files must be compiled when working locally -->
  <!-- The ItemGroup settings depends of the setting ModelsBuilder in appsettings.Developement -->
 
- <!--<ItemGroup>
+ <ItemGroup>
    <Compile Remove="umbraco/models/**/*.cs" /> 
- </ItemGroup>-->
+ </ItemGroup>
 
 </Project>

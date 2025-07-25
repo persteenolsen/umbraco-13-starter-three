@@ -1,0 +1,54 @@
+@using MembersUmbraco.Controllers
+@model MembersUmbraco.Models.DeleteProfileModel
+
+@*<p><b>Submitted values:</b><br /><br />*@
+
+
+<div class="container shadow p-5">
+    
+  
+    Hello from DeleteProfileForm.cs<br /><br />
+    
+    @{
+    // var isLoggedIn = Context.User.GetMemberIdentity()?.IsAuthenticated ?? false;
+
+    <p>Hello <strong>@Context.User?.GetMemberIdentity()?.Name</strong></p>
+    <p style="color:red">Are you sure that you want to delete your Profile ?</p>
+    
+    }
+
+               
+@using (Html.BeginUmbracoForm<DeleteProfileFormController>(nameof(DeleteProfileFormController.Submit)))
+    {
+ 
+        <!--<div asp-validation-summary="All"></div>-->
+       <div class="form-row">
+       
+         <div class="form-group col-md-6">
+            <label asp-for="MemberId"></label><br />
+            <input class="form-control" readonly asp-for="MemberId" value="@Context.User?.GetMemberIdentity()?.GetId()" />
+           <span asp-validation-for="MemberId" class="alert-danger"></span>
+         </div>
+         
+         <div class="form-group col-md-6">
+
+          <label asp-for="Email"></label><br />
+          <input class="form-control" readonly asp-for="Email" value="@Context.User?.GetMemberIdentity()?.Name" />
+          <span asp-validation-for="Email" class="alert-danger"></span>
+        </div>
+      </div>
+    
+   <br />
+    <input type="submit" name="Submit" value="Delete Profile" class="alert-danger" />
+
+    }
+
+</div>
+
+@*//Script for front end validations acording the ResetPasswordModel.cs*@
+
+@section Scripts{
+    @{
+    <partial name="_ValidationScriptsPartial" />
+    }
+}

@@ -87,21 +87,32 @@ namespace MembersUmbraco.Controllers
 
                  // Try to get the Umbraco Member by the Email submitted
                 var member = _memberService.GetById(id);
-                                           
+
+                // TEST - Working - Deleting Hans with Id 1078
+                // var memberToDelete = _memberService.GetById(1078);
+                // _memberService.Delete(memberToDelete);
+
+                // TEST - Working - Updating Bo with Id 1078
+                // var memberToUpdate = _memberService.GetById(1082);
+                //memberToUpdate.Name = "Bo C";
+                //memberToUpdate.Username = "bo-c@test.com";
+                //memberToUpdate.Email = "bo-c@test.biz";
+                //_memberService.Save(memberToUpdate);
+
                 // If there is  Member ...
                 if (member != null)
                 {
-                    
+
                     // Aprove the Member
                     member.IsApproved = true;
-                   
-                   // Add the Member to the Preminum - which needs to be Create in the Umbraco Backend
-                   _memberService.AssignRole(member.Id, "Premium");
 
-                   // Save the Member settings
-                   _memberService.Save(member);
+                    // Add the Member to the Preminum - which needs to be Created in the Umbraco Backend
+                    _memberService.AssignRole(member.Id, "Premium");
 
-                 
+                    // Save the Member settings
+                    _memberService.Save(member);
+
+
                 }
 
                 // return View("RegisterConfirmationForm");
