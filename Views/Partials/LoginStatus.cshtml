@@ -15,8 +15,10 @@
     logoutModel.RedirectUrl = "/";
 }
 
-@if (isLoggedIn)
-{
+@*Note: Giving a Member, which is not yet Approved because he just Registred, 
+the possiblity to Logout and become Approved by Register Confirmation Email *@
+@*@if (isLoggedIn)*@
+@*{*@
     <div class="login-status">
 
         <p>See you soon <strong>@Context.User?.GetMemberIdentity()?.Name</strong>!</p>
@@ -27,4 +29,4 @@
         }
 
     </div>
-}
+@*}*@

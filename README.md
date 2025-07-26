@@ -2,7 +2,7 @@
 
 Last Updated
 
-25-07-2025
+26-07-2025
 
 A Website by Umbraco CMS 13 with Member Registration, Confirmation, Login, Forgot Password and Manage Profile serving as a Starter
 
