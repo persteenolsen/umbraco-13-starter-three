@@ -20,16 +20,15 @@
     <CopyRazorGenerateFilesToPublishDirectory>true</CopyRazorGenerateFilesToPublishDirectory>
   </PropertyGroup>
 
+  <!-- 21-11-2025 - Enable for Production / Disable for Development -->
+  <!-- Remove RazorCompileOnBuild and RazorCompileOnPublish when not using ModelsMode InMemoryAuto -->
   <PropertyGroup>
-    <!-- Remove RazorCompileOnBuild and RazorCompileOnPublish when not using ModelsMode InMemoryAuto -->
     <RazorCompileOnBuild>false</RazorCompileOnBuild>
     <RazorCompileOnPublish>false</RazorCompileOnPublish>
   </PropertyGroup>
 
  <!--Release Build / Production -->
- <!-- Note: Only remove the .cs files / models by the below ItemGroup for Release Build / Production -->
- <!-- The files must be compiled when working locally -->
- <!-- The ItemGroup settings depends of the setting ModelsBuilder in appsettings.Developement -->
+ <!-- 21-11-2025 - Not needed because of the ablove code block-->
 
  <!--<ItemGroup>
    <Compile Remove="umbraco/models/**/*.cs" /> 
